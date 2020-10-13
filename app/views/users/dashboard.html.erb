@@ -1,3 +1,22 @@
 <h1 style="text-align: center"><%= @user.name %>'s Dashboard</h1><hr>
 
-<%= button_to "Log Out", "/sessions/#{@user.id}", method: :delete %>
+<h2>Shows I've Created:</h2>
+    <ul>
+    <% @user.created_shows.each do |show| %>
+        <li><%= show.title %></li>
+    <% end %>
+    </ul>
+    <hr>
+
+<h2>Shows I've Contributed to:</h2>
+    <ul>
+    <% @user.contributions.each do |contribution| %>
+    <li><%= contribution.show.title %> <br>
+    <%= "My Contribution: #{contribution.title}" %></li>
+    <% end %>
+    </ul>
+    <hr>
+
+<div style="text-align: center">
+    <%= button_to "Log Out", "/sessions/#{@user.id}", method: :delete %>
+</div>
