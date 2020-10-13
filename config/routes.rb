@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get 'users/:id/dashboard', to: 'users#dashboard', as: 'user_dashboard'
   
   resources :sessions
+  get '/auth/facebook/callback' => 'sessions#create'
+
 end
