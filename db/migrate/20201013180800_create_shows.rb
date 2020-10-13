@@ -4,6 +4,7 @@ class CreateShows < ActiveRecord::Migration[6.0]
       t.string :title
       t.text :synopsis
       t.text :character_list
+      t.integer :creator_id
 
       t.timestamps
     end
