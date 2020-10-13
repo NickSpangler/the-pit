@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get 'static/welcome'
   resources :users
   get 'users/:id/dashboard', to: 'users#dashboard', as: 'user_dashboard'
+
+  resources :sessions
 end
