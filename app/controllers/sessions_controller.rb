@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     def new
+        @user = User.new
     end
   
     def create
@@ -13,7 +14,7 @@ class SessionsController < ApplicationController
   
       @user = user
   
-      redirect_to controller: 'welcome', action: 'home'
+      redirect_to user_dashboard_path(@user)
     end
   
     def destroy

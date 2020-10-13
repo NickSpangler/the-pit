@@ -1,1 +1,14 @@
 <h1 style="text-align: center">Log In Form</h1>
+
+<div id="log_in_form" style="text-align: center">
+    <%= form_with model: @user, url: '/sessions' do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %><br>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %><br>
+
+        <%= f.submit "Sign Up" %>
+        
+    <% end %>
+</div>
