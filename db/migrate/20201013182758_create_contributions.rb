@@ -6,7 +6,7 @@ class CreateContributions < ActiveRecord::Migration[6.0]
       t.string :title
       t.text :content
       t.text :note_from_creator
-      t.boolean :accepted
+      t.boolean :accepted, default: false
       t.integer :pending_id
 
       t.timestamps
