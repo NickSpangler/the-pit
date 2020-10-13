@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :shows
   root to: 'static#welcome'
   get 'static/welcome'
   resources :users
