@@ -1,1 +1,3 @@
-<h1 style="text-align: center"><%= @user.name %>'s Dashboard</h1>
+<h1 style="text-align: center"><%= @user.name %>'s Dashboard</h1><hr>
+
+<%= button_to "Log Out", "/sessions/#{@user.id}", method: :delete %>
