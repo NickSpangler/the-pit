@@ -18,8 +18,8 @@ Enter Hamlet.
 HAMLET
 To be, or not to be, that is the question:", size: "49x10" %><br><br>
 
-    <%= f.label :type %>
-    <%= f.select :type, ['Song', 'Scene', 'Costume Design', 'Set Design'], include_blank: true %>
+    <%= f.label :kind %>
+    <%= f.select :kind, ['Song', 'Scene', 'Costume Design', 'Set Design'], include_blank: true %>
 
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :show_id, value: @show.id %><br><br>

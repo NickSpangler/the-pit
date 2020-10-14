@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_192137) do
     t.integer "pending_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "type"
+    t.string "kind"
   end
 
   create_table "shows", force: :cascade do |t|
