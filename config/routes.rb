@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   root to: 'static#welcome'
   get 'static/welcome'
 
-  resources :contributions
-  resources :shows
-  resources :users
+  resources :contributions, only: [:index, :show]
+  resources :shows, only: [:index, :show]
+  resources :users do
+    resources :shows
+  end
+
   get 'users/:id/dashboard', to: 'users#dashboard', as: 'user_dashboard'
   
   resources :sessions
