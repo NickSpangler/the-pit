@@ -1,6 +1,9 @@
-<h1><%= @contribution.show.title %></h1>
+<h1><%= link_to @contribution.show.title, @contribution.show %></h1>
 <p>(Created by: <%= link_to @contribution.show.creator.name, @contribution.show.creator %>)</p>
 <h3><%= @contribution.title %></h3>
 <p>(Contributed by: <%= link_to @contribution.contributor.name, @contribution.contributor%>)</p>
 <br>
+<% if @contribution.image != nil %>
+    <%= image_tag @contribution.image, style: "height: 500px" %><br>
+<% end %>
 <%= @contribution.content %>

@@ -10,6 +10,10 @@
     <p><%= @show.character_list %></p>
 
     <h3>Contributions:</h3><hr>
+    <% @show.contributions.each do |c| %>
+        <h4><%= link_to c.title, c %></h4>
+        <p>Contributed by: <%= link_to c.contributor.name, c.contributor %></p>
+    <% end %>
 
     
 </div>
