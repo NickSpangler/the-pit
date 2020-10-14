@@ -1,1 +1,19 @@
-<h1>New Contribution Form</h1>
+<h1>Contribute to <%= @show.title %></h1>
+
+<div class="form_container">
+    <%= form_with model: @contribution, url: "/shows/#{@show.id}/contributions" do |f| %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %><br>
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :show_id, value: @show.id %>
+
+    <%= f.submit "Submit Contribution" %><br><br>
+
+<% end %>
+</div>
+

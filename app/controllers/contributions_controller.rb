@@ -2,6 +2,7 @@ class ContributionsController < ApplicationController
 
     def new
         @contribution = Contribution.new
+        @show = Show.find_by(id: params[:show_id])
     end
 
     def create
