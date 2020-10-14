@@ -6,7 +6,9 @@ class ContributionsController < ApplicationController
     end
 
     def create
-
+        @contribution = Contribution.new(contribution_params)
+        @contribution.save
+        redirect_to show_contribution_path(@contribution.show_id, @contribution)
     end
 
     def show
