@@ -3,6 +3,7 @@
 <% @shows.each do |show| %>
     <div style="padding-left: 20px">
         <h4><%= link_to show.title, show %></h4>
+        <p>Created by: <%= link_to show.creator.name, show.creator %></p>
         <p><%= show.synopsis %></p>
         <%= button_to "Contribute To This Show" %>
     </div>

@@ -1,1 +1,6 @@
-<h1>CONTRIBUTION SHOW PAGE</h1>
+<h1><%= @contribution.show.title %></h1>
+<p>(Created by: <%= link_to @contribution.show.creator.name, @contribution.show.creator %>)</p>
+<h3><%= @contribution.title %></h3>
+<p>(Contributed by: <%= link_to @contribution.contributor.name, @contribution.contributor%>)</p>
+<br>
+<%= @contribution.content %>
