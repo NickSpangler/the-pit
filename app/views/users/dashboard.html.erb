@@ -17,7 +17,7 @@
         <ul>
         <% @user.contributions.each do |contribution| %>
         <li><%= link_to contribution.show.title, contribution.show %> <br>
-        <%= "My Contribution: #{contribution.title}" %></li>
+        My Contribution: <%= link_to contribution.title, user_contribution_path(current_user, contribution) %></li>
         <% end %>
         </ul>
         <hr>

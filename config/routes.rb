@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'static/welcome'
 
   resources :contributions, only: [:index, :show]
-  resources :shows, only: [:index, :show]
+  resources :shows, only: [:index, :show] do
+    resources :contributions
+  end
   resources :users do
     resources :shows
     resources :contributions
