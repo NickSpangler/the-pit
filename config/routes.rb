@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :shows, only: [:index, :show]
   resources :users do
     resources :shows
+    resources :contributions
   end
 
   get 'users/:id/dashboard', to: 'users#dashboard', as: 'user_dashboard'
