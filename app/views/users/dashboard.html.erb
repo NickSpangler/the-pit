@@ -1,24 +1,28 @@
 <h1 style="text-align: center"><%= @user.name %>'s Dashboard</h1><hr>
 
-<h2>Shows I've Created:</h2>
-    <ul>
-    <% @user.created_shows.each do |show| %>
-        <li><%= show.title %></li>
-    <% end %>
-    </ul>
+<div id="shows_container" style="padding-left: 20px">
+    <h2>Shows I've Created:</h2>
+        <ul>
+        <% @user.created_shows.each do |show| %>
+            <li><%= link_to show.title, user_show_path(current_user, show) %></li>
+        <% end %>
+        </ul>
 
-    <%= button_to "Create New Show", new_user_show_path(current_user), method: :get %>
-    <hr>
-
-<h2>Shows I've Contributed to:</h2>
-    <ul>
-    <% @user.contributions.each do |contribution| %>
-    <li><%= contribution.show.title %> <br>
-    <%= "My Contribution: #{contribution.title}" %></li>
-    <% end %>
-    </ul>
-    <hr>
-
-<div style="text-align: center">
-    <%= button_to "Log Out", "/sessions/#{@user.id}", method: :delete %>
+        <%= button_to "Create New Show", new_user_show_path(current_user), method: :get %>
+        <hr>
 </div>
+
+<div id="contributions_container" style="padding-left: 20px">
+    <h2>Shows I've Contributed to:</h2>
+        <ul>
+        <% @user.contributions.each do |contribution| %>
+        <li><%= link_to contribution.show.title, contribution.show %> <br>
+        <%= "My Contribution: #{contribution.title}" %></li>
+        <% end %>
+        </ul>
+        <hr>
+</div>
+
+<%# <div style="text-align: center">
+    <%= button_to "Log Out", "/sessions/#{@user.id}", method: :delete %>
+<%# </div> %> 
