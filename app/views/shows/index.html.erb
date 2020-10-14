@@ -1,0 +1,9 @@
+<h1>Shows being built in The PIT:</h1>
+
+<% @shows.each do |show| %>
+    <div>
+        <h4><%= link_to show.title, show %></h4>
+        <p><%= show.synopsis %></p>
+        <%= button_to "Contribute To This Show" %>
+    </div>
+<% end %>
