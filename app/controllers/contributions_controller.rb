@@ -18,7 +18,7 @@ class ContributionsController < ApplicationController
     private
 
     def contribution_params
-        params.require(:contribution).permit(:show_id, :user_id, :title, :content, :note_from_creator, :accepted, :pending_id, :kind, :image)
+        params.require(:contribution).permit(:show_id, :user_id, :title, :rich_content, :note_from_creator, :accepted, :pending_id, :kind, :image)
     end
 
     def set_contribution

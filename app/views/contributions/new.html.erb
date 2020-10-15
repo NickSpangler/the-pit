@@ -7,7 +7,7 @@
     <%= f.text_field :title, placeholder: "e.g. Act II, Scene I", size: 50 %><br><br>
 
     <%= f.label :content %><br>
-    <%= f.text_area :content, placeholder: "e.g. 
+    <%= f.rich_text_area :rich_content, placeholder: "e.g. 
 POLONIUS
 I hear him coming. Withdraw, my lord.
 
@@ -16,7 +16,7 @@ Exeunt King and Polonius.
 Enter Hamlet.
 
 HAMLET
-To be, or not to be, that is the question:", size: "49x10" %><br><br>
+To be, or not to be, that is the question.", size: "49x10" %><br><br>
 
     <%= f.label :kind %>
     <%= f.select :kind, ['Song', 'Scene', 'Costume Design', 'Set Design'], include_blank: true %>
