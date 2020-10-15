@@ -7,10 +7,13 @@
     <%= f.text_field :title %><br>
 
     <%= f.label :synopsis %>
-    <%= f.text_area :synopsis %><br>
+    <%= f.rich_text_area :rich_synopsis %><br>
 
     <%= f.label :character_list %>
     <%= f.rich_text_area :rich_character_list %><br>
+
+    <%= f.label :logo %>
+    <%= f.file_field :logo %><br>
 
     <%= f.hidden_field :creator_id, value: current_user.id %>
 

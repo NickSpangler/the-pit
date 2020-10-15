@@ -20,7 +20,7 @@ class ShowsController < ApplicationController
     private
 
     def show_params
-        params.require(:show).permit(:title, :synopsis, :character_list, :creator_id, :rich_character_list)
+        params.require(:show).permit(:title, :creator_id, :logo, :rich_character_list, :rich_synopsis)
     end
 
     def set_show
