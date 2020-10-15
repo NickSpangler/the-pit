@@ -4,11 +4,9 @@
 <p>(Contributed by: <%= link_to @contribution.contributor.name, @contribution.contributor%>)</p>
 <br>
     <% if @contribution.image.attached? %>
-            <% if @contribution.kind == "Song" %>
-                <%= audio_tag url_for(@contribution.image), controls: true, preload: "none" %><br>
-            <% else %>
-                <%= image_tag @contribution.image, style: "height: 500px" %><br>
-            <% end %>
+        <%= image_tag @contribution.image, style: "height: 500px" %><br>
+    <% elsif @contribution.audio_file.attached? %>
+        <%= audio_tag url_for(@contribution.audio_file), controls: true, preload: "none" %><br>
     <% end %>
 
 <%= @contribution.rich_content %>
