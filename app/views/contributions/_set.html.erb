@@ -1,0 +1,22 @@
+<h1 style="text-align: center">Contribute a set design to <%= @show.title %></h1>
+
+<div class="form_container" style="padding-left: 20px">
+    <%= form_with model: @contribution, url: "/shows/#{@show.id}/contributions" do |f| %>
+
+    <%= f.label :title %><br>
+    <%= f.text_field :title, placeholder: "e.g. Manhattan Skyline Set Design", size: 50 %><br><br>
+
+    <%= f.label :content, "Describe your design" %><br>
+    <%= f.rich_text_area :rich_content, placeholder: "e.g. For the opening scene, when we meet our protagonist." %><br>
+
+    <%= f.label "Upload an image of your set design" %>
+    <%= f.file_field :image %>
+
+    <%= f.hidden_field :kind, value: "Set" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :show_id, value: @show.id %><br>
+
+    <%= f.submit "Submit Set Design" %>
+
+<% end %>
+</div>

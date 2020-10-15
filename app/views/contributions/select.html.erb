@@ -1,0 +1,28 @@
+<h1 style="text-align: center">What would you like to contribute to <%= @show.title %>?</h1><br>
+
+<div class="form_container" style="text-align: center">
+    <%= form_tag(new_show_contribution_path(@show), method: :get) %>
+
+    <div>
+        <%= label_tag 'kind_song', 'Song' %>
+        <%= radio_button_tag 'kind', 'song' %>
+    </div>
+
+    <div>
+        <%= label_tag 'kind_scene', 'Scene' %>
+        <%= radio_button_tag 'kind', 'scene'%>
+    </div>
+
+    <div>
+        <%= label_tag 'kind_set', 'Set' %>
+        <%= radio_button_tag 'kind', 'set'%>
+    </div>
+
+    <div>
+        <%= label_tag 'kind_costume', 'Costume' %>
+        <%= radio_button_tag 'kind', 'costume'%>
+    </div>
+
+    <br>
+    <%= submit_tag "Make Contribution" %>
+</div>

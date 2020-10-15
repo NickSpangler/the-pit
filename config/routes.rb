@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :contributions
   end
 
+  get 'shows/:id/select', to: 'contributions#select', as: 'contribution_select'
+
   get 'users/:id/dashboard', to: 'users#dashboard', as: 'user_dashboard'
   
   resources :sessions

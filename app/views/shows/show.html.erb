@@ -6,10 +6,17 @@
             <%= image_tag(@show.logo, height: "200") %>
         </div>
     <% end %>
+<%# NEW CODE BELOW %>
 
-     <div style="text-align: center">
-        <%= button_to "Contribute To This Show", new_show_contribution_path(@show), method: :get %>
+    <div style="text-align: center">
+        <%= button_to "Contribute To This Show", contribution_select_path(@show), method: :get %>
     </div>
+<%# OLD CODE ABOVE %>
+<%# OLD CODE BELOW %>
+     <%# <div style="text-align: center">
+        <%= button_to "Contribute To This Show", new_show_contribution_path(@show), method: :get %>
+    <%# </div> %>
+<%# OLD CODE ABOVE %>
 
     <h3>Synopsis:</h3>
     <%= @show.rich_synopsis %><hr>

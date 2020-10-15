@@ -1,0 +1,22 @@
+<h1 style="text-align: center">Contribute a song to <%= @show.title %></h1>
+
+<div class="form_container" style="padding-left: 20px">
+    <%= form_with model: @contribution, url: "/shows/#{@show.id}/contributions" do |f| %>
+
+    <%= f.label :title %><br>
+    <%= f.text_field :title, placeholder: "e.g. Some Enchanted Evening", size: 50 %><br><br>
+
+    <%= f.label :content, "Lyrics" %><br>
+    <%= f.rich_text_area :rich_content, placeholder: "e.g. Some enchanted evening you may see a stranger. You may see a stranger across a crowded room.", size: "49x10" %><br>
+
+    <%= f.label "Upload a recording of your song" %>
+    <%= f.file_field :audio_file %>
+
+    <%= f.hidden_field :kind, value: "Song" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :show_id, value: @show.id %><br>
+
+    <%= f.submit "Submit Song" %>
+
+<% end %>
+</div>

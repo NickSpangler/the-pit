@@ -1,0 +1,19 @@
+<h1 style="text-align: center">Contribute a scene to <%= @show.title %></h1>
+
+<div class="form_container" style="padding-left: 20px">
+    <%= form_with model: @contribution, url: "/shows/#{@show.id}/contributions" do |f| %>
+
+    <%= f.label :title %><br>
+    <%= f.text_field :title, placeholder: "e.g. Act II, Scene I", size: 50 %><br><br>
+
+    <%= f.label :content, "Scene Content" %><br>
+    <%= f.rich_text_area :rich_content, placeholder: "e.g. HAMLET: To be, or not to be." %><br>
+
+<%= f.submit "Submit Scene" %>
+
+    <%= f.hidden_field :kind, value: "Scene" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :show_id, value: @show.id %><br><br>
+
+<% end %>
+</div>

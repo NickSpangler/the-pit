@@ -1,5 +1,6 @@
 class ShowsController < ApplicationController
     skip_before_action :verified_user, only: [:index, :show]
+
     def new
         @show = Show.new
     end
