@@ -1,12 +1,14 @@
 <h1><%= link_to @contribution.show.title, @contribution.show %></h1>
 <p>(Created by: <%= link_to @contribution.show.creator.name, @contribution.show.creator %>)</p>
-<h3><%= @contribution.title %></h3>
-<p>(Contributed by: <%= link_to @contribution.contributor.name, @contribution.contributor%>)</p>
-<br>
-    <% if @contribution.image.attached? %>
-        <%= image_tag @contribution.image, style: "height: 500px" %><br>
-    <% elsif @contribution.audio_file.attached? %>
-        <%= audio_tag url_for(@contribution.audio_file), controls: true, preload: "none" %><br>
-    <% end %>
+<div class="contribution_container" style="padding-left: 20px">
+    <h3><%= @contribution.title %></h3>
+    <p>(Contributed by: <%= link_to @contribution.contributor.name, @contribution.contributor%>)</p>
+    <br>
+        <% if @contribution.image.attached? %>
+            <%= image_tag @contribution.image, style: "height: 500px" %><br>
+        <% elsif @contribution.audio_file.attached? %>
+            <%= audio_tag url_for(@contribution.audio_file), controls: true, preload: "none" %><br>
+        <% end %>
 
-<%= @contribution.rich_content %>
+    <%= @contribution.rich_content %>
+</div>

@@ -1,7 +1,8 @@
 class ContributionsController < ApplicationController
 
     def select
-        @show = Show.find_by(params[:id])
+
+        @show = Show.find_by(id: params[:id])
     end
 
     def new
