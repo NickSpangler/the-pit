@@ -15,9 +15,11 @@
 <div id="contributions_container" style="padding-left: 20px">
     <h2>Shows I've Contributed to:</h2>
         <ul>
-        <% @user.contributions.each do |contribution| %>
-        <li><%= link_to contribution.show.title, contribution.show %> <br>
-        My Contribution: <%= link_to contribution.title, user_contribution_path(current_user, contribution) %></li>
+        <% @user.contributed_shows.uniq.each do |show| %>
+        <li><%= link_to show.title, show %></li> <br>
+            <% show.contributions.where(contributor: current_user).each do |contribution| %>
+            <p>My Contribution: <%= link_to contribution.title, user_contribution_path(current_user, contribution) %></p>
+            <% end %>
         <% end %>
         </ul>
         <hr>

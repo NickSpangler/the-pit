@@ -1,17 +1,17 @@
 <h1>Coming Soon...</h1>
 
 <div id="show_container" style="padding-left: 20px">
-    <h2><%= @show.title %></h2> <%= button_to "Contribute To This Show", new_show_contribution_path(@show), method: :get %>
+    <h2><%= @show.title %></h2> <%= button_to "Contribute To This Show", new_show_contribution_path(@show), method: :get %><hr>
 
-    <h3>Synopsis:</h3><hr>
-    <p><%= @show.synopsis %></p>
+    <h3>Synopsis:</h3>
+    <p><%= @show.synopsis %></p><hr>
 
-    <h3>Characters:</h3><hr>
-    <p><%= @show.character_list %></p>
+    <h3>Characters:</h3>
+    <p><%= @show.character_list %></p><hr>
 
-    <h3>Contributions:</h3><hr>
+    <h3>Contributions:</h3>
     <% @show.contributions.each do |c| %>
-        <h4><%= link_to c.title, c %></h4>
+        <h4><%= link_to c.title, show_contribution_path(@show, c) %></h4>
         <p>Contributed by: <%= link_to c.contributor.name, c.contributor %></p>
     <% end %>
 
