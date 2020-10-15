@@ -1,0 +1,1 @@
+1) look into and fix image display for non-image contributions.
