@@ -27,6 +27,9 @@ To be, or not to be, that is the question:", size: "49x10" %><br><br>
     <%= f.label "Upload an image of your Costume or Set Design" %>
     <%= f.file_field :image %><br><br>
 
+    <%= f.label "Upload a recording if you're submitting a song" %>
+    <%= f.file_field :audio_file %><br><br>
+
     <%= f.submit "Submit Contribution" %><br><br>
 
 <% end %>
