@@ -7,7 +7,8 @@
     <p><%= @show.synopsis %></p><hr>
 
     <h3>Characters:</h3>
-    <p><%= @show.character_list %></p><hr>
+    <%= @show.rich_character_list %>
+    <%= @show.character_list %><hr>
 
     <h3>Contributions:</h3>
     <% @show.contributions.each do |c| %>

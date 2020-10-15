@@ -10,7 +10,7 @@
     <%= f.text_area :synopsis %><br>
 
     <%= f.label :character_list %>
-    <%= f.text_area :character_list %><br>
+    <%= f.rich_text_area :rich_character_list %><br>
 
     <%= f.hidden_field :creator_id, value: current_user.id %>
 
