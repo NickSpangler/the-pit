@@ -17,7 +17,7 @@
     <%= f.text_field :title, placeholder: "e.g. Wicked", size: 50 %><br>
 
     <%= f.label :synopsis %>
-    <div <% if @show.errors.full_messages.include?("Rich synopsis Please include a synopsis of your show.") %> class="field_with_errors" <% end %>>
+    <div <% if @show.errors.keys.include?(:rich_synopsis) %> class="field_with_errors" <% end %>>
     <%= f.rich_text_area :rich_synopsis, placeholder: "e.g. Told from the perspective of the witches of the Land of Oz, Wicked begins before and continues after Dorothy Gale arrives in Oz from Kansas, and includes several references to the 1939 film and Baum's novel. Wicked tells the story of two unlikely friends, Elphaba (the Wicked Witch of the West) and Galinda (whose name later changes to Glinda the Good Witch), who struggle through opposing personalities and viewpoints, rivalry over the same love-interest, reactions to the Wizard's corrupt government, and, ultimately, Elphaba's private fall from grace." %><br>
     </div>
 

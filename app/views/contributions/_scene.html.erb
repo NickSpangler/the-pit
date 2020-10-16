@@ -2,7 +2,7 @@
 
 <% if @contribution.errors.any? %>
     <div class="errors_explanation", style="padding: 20px">
-        <% @show.errors.values.each do |m| %>
+        <% @contribution.errors.values.each do |m| %>
             <p><%= m.to_sentence %></p>
         <% end %>
     </div>
@@ -15,7 +15,9 @@
     <%= f.text_field :title, placeholder: "e.g. Act II, Scene I", size: 50 %><br><br>
 
     <%= f.label :content, "Scene Content" %><br>
+    <div <% if @contribution.errors.keys.include?(:rich_content) %> class="field_with_errors" <% end %>>
     <%= f.rich_text_area :rich_content, placeholder: "e.g. HAMLET: To be, or not to be." %><br>
+    </div>
 
 <%= f.submit "Submit Scene" %>
 
