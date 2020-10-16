@@ -7,16 +7,29 @@ class Contribution < ApplicationRecord
 
     validates :title, presence: { message: 'Please include a title for your contribution.' }
     validate :scene_content
+    validate :image_attached
+    validate :song_attached
 
-    def attached_image
-        if kind == "Set" || kind == "Costume" && !image.attached
-            errors.add(:image, "You must upload an image.")
+    def image_attached
+        if kind == "Set" || kind == "Costume"
+            if !image.attached?
+                errors.add(:image, "Please upload an image of your design.")
+            end
+            if rich_content.empty?
+                errors.add(:rich_content, "Please include a description of your design.")
+            end
         end
     end
 
     def scene_content
-        if rich_content.empty?
+        if kind == "Scene" && rich_content.empty?
             errors.add(:rich_content, "Please include some content in your scene.")
+        end
+    end
+
+    def song_attached
+        if kind == "Song" && !audio_file.attached?
+            errors.add(:audio_file, "Please upload a recording of your song.")
         end
     end
 end
