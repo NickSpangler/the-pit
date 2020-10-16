@@ -7,8 +7,6 @@
             <li><%= link_to show.title, user_show_path(current_user, show) %></li>
         <% end %>
         </ul>
-
-        <%= button_to "Create New Show", new_user_show_path(current_user), method: :get %>
         <hr>
 </div>
 
@@ -24,7 +22,3 @@
         </ul>
         <hr>
 </div>
-
-<%# <div style="text-align: center">
-    <%= button_to "Log Out", "/sessions/#{@user.id}", method: :delete %>
-<%# </div> %> 
