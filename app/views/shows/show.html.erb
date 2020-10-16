@@ -17,15 +17,36 @@
     <h3>Characters:</h3>
     <%= @show.rich_character_list %><hr>
 
-    <h3>Contributions:</h3>
-    <% if @show.contributions.empty? %>
-        <p>Be the first to <%= link_to "Contribute To This Show", contribution_select_path(@show), method: :get %></p>
-    <% end %>
-    <% @show.contributions.each do |c| %>
-        <h4><%= link_to c.title, show_contribution_path(@show, c) %></h4>
-        <p><%= c.kind %> contributed by: <%= link_to c.contributor.name, c.contributor %></p>
-    <% end %>
 
-    
-</div>
+    <% if @show.contributions.empty? %>
+        <h2>Be the first to <%= link_to "Contribute To This Show", contribution_select_path(@show), method: :get %></h2>
+    <% else %>
+<div id = "boxes"> 
+            <div id = "leftbox"> 
+                <h2>Scenes</h2><hr> 
+                <% @show.scenes.each do |c| %>
+                    <h4><%= link_to c.title, show_contribution_path(@show, c) %></h4>
+                    <p><%= c.kind %> contributed by: <%= link_to c.contributor.name, c.contributor %></p>
+                <% end %>
+            </div>  
+              
+            <div id = "middlebox"> 
+                <h2>Songs</h2><hr>
+                <% @show.songs.each do |c| %>
+                    <h4><%= link_to c.title, show_contribution_path(@show, c) %></h4>
+                    <%= audio_tag url_for(c.audio_file), controls: true, preload: "none" %><br>
+                    <p><%= c.kind %> contributed by: <%= link_to c.contributor.name, c.contributor %></p>
+                <% end %>
+            </div> 
+              
+            <div id = "rightbox"> 
+                <h2>Designs</h2><hr> 
+                <% @show.designs.each do |c| %>
+                    <h4><%= link_to c.title, show_contribution_path(@show, c) %></h4>
+                    <%= link_to image_tag(c.image, {style: "height: 100px"}), show_contribution_path(@show, c) %><br>
+                    <p><%= c.kind %> contributed by: <%= link_to c.contributor.name, c.contributor %></p>
+                <% end %>
+            </div> 
+        </div>
+        <% end %>
 

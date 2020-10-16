@@ -5,4 +5,16 @@ class Show < ApplicationRecord
     has_one_attached :logo
     has_rich_text :rich_synopsis
     has_rich_text :rich_character_list
+
+    def songs
+        contributions.where(kind: "Song")
+    end
+
+    def scenes
+        contributions.where(kind: "Scene")
+    end
+
+    def designs
+        contributions.where('kind IN (?)', ["Costume", "Set"])
+    end
 end

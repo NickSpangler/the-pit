@@ -1,3 +1,30 @@
 // Place all the styles related to the shows controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#leftbox { 
+    float:left;  
+    width:33%; 
+    padding-right: 4px;
+} 
+#middlebox{ 
+    float:left;  
+    width:34%; 
+    padding-right: 4px; 
+    padding-left: 4px; 
+} 
+#rightbox{ 
+    float:right; 
+    width:33%; 
+    padding-left: 4px;
+} 
+h1{ 
+    text-align: center;
+    color:green; 
+    text-align:center; 
+} 
+
+h2{ 
+    text-align: center;
+    color:green; 
+    text-align:center; 
+} 
