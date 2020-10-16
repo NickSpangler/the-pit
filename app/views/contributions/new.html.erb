@@ -1,1 +1,5 @@
-<%= render @kind %>
+<% if @contribution.kind %>
+    <%= render "#{@contribution.kind.downcase}" %>
+<% else %>
+    <%= render @kind %>
+<% end %>

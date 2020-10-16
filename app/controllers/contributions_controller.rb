@@ -17,7 +17,7 @@ class ContributionsController < ApplicationController
             @contribution.save
             redirect_to show_contribution_path(@contribution.show_id, @contribution)
         else
-            byebug
+            @show = Show.find_by(id: params[:show_id])
             render :new
         end
     end
