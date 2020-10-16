@@ -30,8 +30,6 @@
     <div class="topnav">
       <a class="active" href="/">The PIT</a></a>
       <a href="/shows">Browse Shows</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
     </div>
 
     <% else %>
@@ -39,7 +37,6 @@
     <div class="topnav">
       <a class="active" href='/users/<%= current_user.id %>/dashboard'>My Dashboard</a>
       <a href="/shows">Browse Shows</a>
-      <a href="#contact">Contact</a>
       <%= link_to "Log Out", "/sessions/#{current_user.id}", method: :delete %>
     </div>
 
