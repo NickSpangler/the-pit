@@ -1,12 +1,6 @@
 <h1 style="text-align: center">Contribute a song to <%= @show.title %></h1>
 
-<% if @contribution.errors.any? %>
-    <div class="errors_explanation", style="padding: 20px">
-        <% @contribution.errors.values.each do |m| %>
-            <p><%= m.to_sentence %></p>
-        <% end %>
-    </div>
-<% end %>
+<%= render "error_fields" %>
 
 <div class="form_container" style="padding-left: 20px">
     <%= form_with model: @contribution, url: "/shows/#{@show.id}/contributions", local: :true do |f| %>
