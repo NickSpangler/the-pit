@@ -6,17 +6,10 @@
             <%= image_tag(@show.logo, height: "200") %>
         </div>
     <% end %>
-<%# NEW CODE BELOW %>
 
     <div style="text-align: center">
         <%= button_to "Contribute To This Show", contribution_select_path(@show), method: :get %>
     </div>
-<%# OLD CODE ABOVE %>
-<%# OLD CODE BELOW %>
-     <%# <div style="text-align: center">
-        <%= button_to "Contribute To This Show", new_show_contribution_path(@show), method: :get %>
-    <%# </div> %>
-<%# OLD CODE ABOVE %>
 
     <h3>Synopsis:</h3>
     <%= @show.rich_synopsis %><hr>
@@ -30,7 +23,7 @@
     <% end %>
     <% @show.contributions.each do |c| %>
         <h4><%= link_to c.title, show_contribution_path(@show, c) %></h4>
-        <p>Contributed by: <%= link_to c.contributor.name, c.contributor %></p>
+        <p><%= c.kind %> contributed by: <%= link_to c.contributor.name, c.contributor %></p>
     <% end %>
 
     
