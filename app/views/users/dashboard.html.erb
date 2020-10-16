@@ -17,6 +17,9 @@
         <li><%= link_to show.title, show %></li> <br>
             <% show.contributions.where(contributor: current_user).each do |contribution| %>
             <p>My Contribution: <%= link_to contribution.title, user_contribution_path(current_user, contribution) %></p>
+            <p><a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+             <a href="#"><span class="glyphicon glyphicon-trash"></span></a>
+            </p>
             <% end %>
         <% end %>
         </ul>

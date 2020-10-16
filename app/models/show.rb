@@ -6,6 +6,8 @@ class Show < ApplicationRecord
     has_rich_text :rich_synopsis
     has_rich_text :rich_character_list
 
+    validates :title, presence: true
+
     def songs
         contributions.where(kind: "Song")
     end

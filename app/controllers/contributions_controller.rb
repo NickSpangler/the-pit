@@ -13,8 +13,13 @@ class ContributionsController < ApplicationController
 
     def create
         @contribution = Contribution.new(contribution_params)
-        @contribution.save
-        redirect_to show_contribution_path(@contribution.show_id, @contribution)
+        if @contribution.valid?
+            @contribution.save
+            redirect_to show_contribution_path(@contribution.show_id, @contribution)
+        else
+            byebug
+            render :new
+        end
     end
 
     def show

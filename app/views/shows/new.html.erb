@@ -1,6 +1,17 @@
 <h1>Create the next hit Broadway Show!</h1>
 <hr>
+
+<% if @show.errors.any? %>
+    <div class="field_with_errors">
+    <p>Fuck my life</p>
+        <% @show.errors.full_messages.each do |m| %>
+            <%= m %>
+        <% end %>
+    </div>
+<% end %>
+
 <div style="padding: 20px">
+
 <%= form_with model: @show, url: "/users/#{current_user.id}/shows" do |f| %>
 
     <%= f.label :title, "Show Title" %>

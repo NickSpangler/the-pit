@@ -6,8 +6,12 @@ class ShowsController < ApplicationController
     end
 
     def create
-        @show = current_user.created_shows.create(show_params)
-        redirect_to user_show_path(current_user, @show)
+        @show = current_user.created_shows.build(show_params)
+        if @show.save
+            redirect_to user_show_path(current_user, @show)
+        else
+            render :new
+        end
     end
 
     def show
