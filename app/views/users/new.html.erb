@@ -1,6 +1,6 @@
-<h1 style="text-align: center">New User Form</h1>
+<h1 style="text-align: center">Sign Up to Enter The PIT!</h1>
 
-<div id="new_user_form" style="text-align: center">
+<div id="new_user_form" class="center">
     <%= form_with model: @user do |f| %>
         <%= f.label :name %>
         <%= f.text_field :name %><br>
@@ -17,4 +17,8 @@
         <%= f.submit "Sign Up" %>
         
     <% end %>
+</div>
+
+<div class="center" style="text-align: center">
+<%= link_to('Sign up with Facebook!', '/auth/facebook') %>
 </div>
