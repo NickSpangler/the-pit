@@ -1,0 +1,23 @@
+<h1 style="text-align: center">Update your scene for <%= @show.title %></h1>
+
+<%= render "error_fields" %>
+
+<div class="form_container" style="padding-left: 20px">
+    <%= form_with model: @contribution, url: show_contribution_path(@show, @contribution), method: :patch, local: :true do |f| %>
+
+    <%= f.label "Title" %><br>
+    <%= f.text_field :title, placeholder: "e.g. Act II, Scene I", size: 50 %><br><br>
+
+    <%= f.label :content, "Scene Content" %><br>
+    <div <% if @contribution.errors.keys.include?(:rich_content) %> class="field_with_errors" <% end %>>
+    <%= f.rich_text_area :rich_content, placeholder: "e.g. HAMLET: To be, or not to be." %><br>
+    </div>
+
+<%= f.submit "Update Scene" %>
+
+    <%= f.hidden_field :kind, value: "Scene" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :show_id, value: @show.id %>
+
+<% end %>
+</div>

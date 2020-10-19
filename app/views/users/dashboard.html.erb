@@ -1,5 +1,7 @@
 <h1 style="text-align: center"><%= @user.name %>'s Dashboard</h1><hr>
 
+<p id="notice" style="padding-left: 20px; color: red"><%= notice %></p>
+
 <div id="shows_container" style="padding-left: 20px">
     <h2>Shows I've Created:</h2>
         <ul>
@@ -22,7 +24,7 @@
             <% show.contributions.where(contributor: current_user).each do |contribution| %>
             <p>My Contribution: <%= link_to contribution.title, user_contribution_path(current_user, contribution) %></p>
             <p>
-                <%= link_to 'Edit', edit_contribution_path(contribution) %> - 
+                <%= link_to 'Edit', edit_show_contribution_path(show, contribution) %> - 
                 <%= link_to 'Delete', contribution, method: :delete, data: { confirm: 'Are you sure?' } %>
             </p>
             <% end %>

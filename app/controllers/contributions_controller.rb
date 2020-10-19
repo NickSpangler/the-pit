@@ -28,14 +28,21 @@ class ContributionsController < ApplicationController
 
     def edit
         set_contribution
-        @show = @contribution.show
-       render "new" 
+        if current_user == @contribution.contributor
+            @show = @contribution.show
+        else
+            redirect_to user_dashboard_path(current_user), notice: 'You may only edit your own contributions.'
+        end
     end
 
     def update
         set_contribution
-        @contribution.update(contribution_params)
-        redirect_to show_contribution_path(@contribution.show_id, @contribution)
+        if @contribution.update(contribution_params)
+            redirect_to show_contribution_path(@contribution.show_id, @contribution)
+        else
+            @show = @contribution.show
+            render "edit"
+        end
     end
 
     def destroy
