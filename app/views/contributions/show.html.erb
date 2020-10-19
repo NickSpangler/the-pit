@@ -9,7 +9,6 @@
         <% elsif @contribution.audio_file.attached? %>
             <%= audio_tag url_for(@contribution.audio_file), controls: true, preload: "none" %><br>
         <% end %>
-        <br>
-    <h5><%= @contribution.contributor.name %> says:</h5><hr>
+        <br><hr>
     <%= @contribution.rich_content %>
 </div>

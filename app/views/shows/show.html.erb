@@ -13,8 +13,12 @@
         <!-- Modal content -->
     <div class="modal-content">
         <span class="close">&times;</span>
-        <% @show.contributors.uniq.each do |contributor| %>
-            <p><%= link_to contributor.name, contributor %></p>
+        <% if @show.contributors.empty?%>
+            <p>Be the first to <%= link_to "Contribute To This Show", contribution_select_path(@show), method: :get %></p>
+        <% else %>
+            <% @show.contributors.uniq.each do |contributor| %>
+                <p><%= link_to contributor.name, contributor %></p>
+            <% end %>
         <% end %>
     </div>
 </div>
