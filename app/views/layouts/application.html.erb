@@ -28,8 +28,12 @@
   </head>
   <% if !current_user %>
     <div class="topnav">
-      <a class="active" href="/">The PIT</a></a>
-      <a href="/shows">Browse Shows</a>
+      <a class="active" href="/">The PIT</a>
+      <%= link_to "Browse Shows", shows_path %>
+      <%= link_to "Browse Contributors", users_path %>
+      <a href="/shows">Browse Contributors</a>
+      <a href="/shows">Sign Up</a>
+      <a href="/shows">Log In</a>
     </div>
 
     <% else %>

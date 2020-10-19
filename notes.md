@@ -7,3 +7,5 @@
 4) Running Order? How to see the current version of a script?
     - Just dump them all on one show page with their current content?
 
+5) Scope method
+
