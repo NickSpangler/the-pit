@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :contributions, only: [:index, :show, :destroy, :edit]
   patch '/shows/:id/contributions', to: 'contributions#update'
 
-  resources :shows, only: [:index, :show] do
+  resources :shows, only: [:index, :show, :destroy] do
     resources :contributions
   end
   resources :users do

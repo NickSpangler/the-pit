@@ -35,6 +35,12 @@ class ShowsController < ApplicationController
         end
     end
 
+    def destroy
+        set_show
+        @show.destroy
+        redirect_to user_dashboard_path(current_user)
+    end
+
     def most_active
         @show = Show.most_active
         render 'show'

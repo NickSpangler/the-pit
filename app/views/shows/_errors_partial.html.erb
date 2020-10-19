@@ -1,0 +1,8 @@
+
+<% if @show.errors.any? %>
+    <div class="errors_explanation", style="padding: 20px">
+        <% @show.errors.values.each do |m| %>
+            <p><%= m.to_sentence %></p>
+        <% end %>
+    </div>
+<% end %>
