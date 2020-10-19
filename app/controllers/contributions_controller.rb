@@ -1,4 +1,5 @@
 class ContributionsController < ApplicationController
+    skip_before_action :verified_user, only: [:show]
 
     def select
         @show = Show.find_by(id: params[:id])

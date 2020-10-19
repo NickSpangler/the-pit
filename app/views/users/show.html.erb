@@ -1,1 +1,24 @@
-<h1>User Show Page</h1>
+<h1 style="text-align: center"><%= @user.name %></h1><hr>
+
+<div id="shows_container" style="padding-left: 20px">
+    <h2><%= @user.name %> is the creator of:</h2>
+        <ul>
+        <% @user.created_shows.each do |show| %>
+            <li><%= link_to show.title, show %></li>
+        <% end %>
+        </ul>
+        <hr>
+</div>
+
+<div id="contributions_container" style="padding-left: 20px">
+    <h2><%= @user.name %> has contributed to:</h2>
+        <ul>
+        <% @user.contributed_shows.uniq.each do |show| %>
+        <li><%= link_to show.title, show %></li> <br>
+            <% show.contributions.where(contributor: @user).each do |contribution| %>
+            <p><%= @user.name %>'s' contribution: <%= link_to contribution.title, contribution %></p>
+            <% end %>
+        <% end %>
+        </ul>
+        <hr>
+</div>
