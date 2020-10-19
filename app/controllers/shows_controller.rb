@@ -1,5 +1,5 @@
 class ShowsController < ApplicationController
-    skip_before_action :verified_user, only: [:index, :show]
+    skip_before_action :verified_user, only: [:index, :show, :most_active]
 
     def new
         @show = Show.new
@@ -20,6 +20,11 @@ class ShowsController < ApplicationController
 
     def index
         @shows = Show.all
+    end
+
+    def most_active
+        @show = Show.most_active
+        render 'show'
     end
 
     private
