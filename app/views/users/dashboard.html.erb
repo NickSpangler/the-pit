@@ -5,6 +5,10 @@
         <ul>
         <% @user.created_shows.each do |show| %>
             <li><%= link_to show.title, user_show_path(current_user, show) %></li>
+            <p>
+                <%= link_to 'Edit', edit_user_show_path(current_user, show) %> - 
+                <%= link_to 'Delete', show, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </p>
         <% end %>
         </ul>
         <hr>
@@ -17,11 +21,13 @@
         <li><%= link_to show.title, show %></li> <br>
             <% show.contributions.where(contributor: current_user).each do |contribution| %>
             <p>My Contribution: <%= link_to contribution.title, user_contribution_path(current_user, contribution) %></p>
-            <p><a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-             <a href="#"><span class="glyphicon glyphicon-trash"></span></a>
+            <p>
+                <%= link_to 'Edit', edit_contribution_path(contribution) %> - 
+                <%= link_to 'Delete', contribution, method: :delete, data: { confirm: 'Are you sure?' } %>
             </p>
             <% end %>
         <% end %>
         </ul>
         <hr>
 </div>
+

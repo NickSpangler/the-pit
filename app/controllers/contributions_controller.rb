@@ -26,6 +26,24 @@ class ContributionsController < ApplicationController
         set_contribution
     end
 
+    def edit
+        set_contribution
+        @show = @contribution.show
+       render "new" 
+    end
+
+    def update
+        set_contribution
+        @contribution.update(contribution_params)
+        redirect_to show_contribution_path(@contribution.show_id, @contribution)
+    end
+
+    def destroy
+        set_contribution
+        @contribution.destroy
+        redirect_to user_dashboard_path(current_user)
+    end
+
     private
 
     def contribution_params

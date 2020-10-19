@@ -22,6 +22,19 @@ class ShowsController < ApplicationController
         @shows = Show.all
     end
 
+    def edit
+        set_show
+    end
+
+    def update
+        set_show
+         if @show.update(show_params)
+            redirect_to user_show_path(current_user, @show)
+        else
+            render :edit
+        end
+    end
+
     def most_active
         @show = Show.most_active
         render 'show'

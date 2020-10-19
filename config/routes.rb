@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'static/welcome'
   get '/shows/most_active', to: 'shows#most_active', as: 'most_active'
 
-  resources :contributions, only: [:index, :show]
+  resources :contributions, only: [:index, :show, :destroy, :edit]
+  patch '/shows/:id/contributions', to: 'contributions#update'
+
   resources :shows, only: [:index, :show] do
     resources :contributions
   end
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
 
   get 'users/:id/dashboard', to: 'users#dashboard', as: 'user_dashboard'
   
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
   get '/auth/facebook/callback' => 'sessions#create'
 
 end

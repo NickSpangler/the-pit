@@ -38,7 +38,7 @@
         <% if !current_user %>
             <p><%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %> to contribute to this show.</p>
         <% else %>
-            <p><%= link_to "Contribute to this Show", contribution_select_path(show) %></p>
+            <p><%= link_to "Contribute to this Show", contribution_select_path(@show) %></p>
         <% end %>
     </div>
 

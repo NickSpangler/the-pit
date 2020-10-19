@@ -1,40 +1,4 @@
 <h1>Create the next hit Broadway Show!</h1>
 <hr>
 
-<% if @show.errors.any? %>
-    <div class="errors_explanation", style="padding: 20px">
-        <% @show.errors.values.each do |m| %>
-            <p><%= m.to_sentence %></p>
-        <% end %>
-    </div>
-<% end %>
-
-<div style="padding: 20px">
-
-<%= form_with model: @show, url: "/users/#{current_user.id}/shows", local: :true do |f| %>
-
-    <%= f.label "Show Title" %>
-    <%= f.text_field :title, placeholder: "e.g. Wicked", size: 50 %><br>
-
-    <%= f.label :synopsis %>
-    <div <% if @show.errors.keys.include?(:rich_synopsis) %> class="field_with_errors" <% end %>>
-    <%= f.rich_text_area :rich_synopsis, placeholder: "e.g. Told from the perspective of the witches of the Land of Oz, Wicked begins before and continues after Dorothy Gale arrives in Oz from Kansas, and includes several references to the 1939 film and Baum's novel. Wicked tells the story of two unlikely friends, Elphaba (the Wicked Witch of the West) and Galinda (whose name later changes to Glinda the Good Witch), who struggle through opposing personalities and viewpoints, rivalry over the same love-interest, reactions to the Wizard's corrupt government, and, ultimately, Elphaba's private fall from grace." %><br>
-    </div>
-
-    <%= f.label :character_list %>
-    <div <% if @show.errors.keys.include?(:rich_character_list) %> class="field_with_errors" <% end %>>
-    <%= f.rich_text_area :rich_character_list, placeholder: "e.g. Glinda: The Good Witch of the North, Elphaba: The Wicked Witch of the East (multi-line formatting will be preserved)"%><br>
-    </div>
-
-    <%= f.label :logo, "Logo (optional): Upload an iconic design" %>
-    <%= f.file_field :logo %><br>
-
-    <%= f.hidden_field :creator_id, value: current_user.id %>
-
-    <hr>
-
-    <%= f.submit "Create Show" %><br><br>
-
-<% end %>
-    <br>
-</div>
+<%= render 'show_form' %>
