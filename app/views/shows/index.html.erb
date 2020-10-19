@@ -5,7 +5,11 @@
         <h4><%= link_to show.title, show %></h4>
         <p>Created by: <%= link_to show.creator.name, show.creator %></p>
         <p><%= show.synopsis %></p>
-        <%= button_to "Contribute To This Show" %>
+        <% if !current_user %>
+            <p><%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %> to contribute to this show.</p>
+        <% else %>
+            <p><%= link_to "Contribute to this Show", contribution_select_path(show) %></p>
+        <% end %>
     </div>
     <hr>
 <% end %>
