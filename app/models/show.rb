@@ -5,8 +5,7 @@ class Show < ApplicationRecord
     has_one_attached :logo
     has_rich_text :rich_synopsis
     has_rich_text :rich_character_list
-
-    # scope :designs, -> { where('kind IN (?)', ["Costume", "Set"]) }
+    scope :most_active, -> { reorder(:contribution_count).first }
 
     validates :title, presence: { message: 'Please include a title for your show.' }
     validate :synopsis_present
@@ -34,5 +33,9 @@ class Show < ApplicationRecord
 
     def designs
         contributions.where('kind IN (?)', ["Costume", "Set"])
+    end
+
+    def contribution_count
+        contributions.count
     end
 end
