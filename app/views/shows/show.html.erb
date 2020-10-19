@@ -13,7 +13,9 @@
         <!-- Modal content -->
     <div class="modal-content">
         <span class="close">&times;</span>
-        <% if @show.contributors.empty?%>
+        <% if @show.contributors.empty? && !current_user %>
+            <p><%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %> to contribute to this show.</p>
+        <% elsif @show.contributors.empty?%>
             <p>Be the first to <%= link_to "Contribute To This Show", contribution_select_path(@show), method: :get %></p>
         <% else %>
             <% @show.contributors.uniq.each do |contributor| %>
@@ -47,7 +49,9 @@
     <%= @show.rich_character_list %><hr>
 
 
-    <% if @show.contributions.empty? %>
+    <% if @show.contributions.empty? && !current_user%>
+        <h2><%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %> to contribute to this show.</h2>
+    <% elsif @show.contributions.empty? %>
         <h2>Be the first to <%= link_to "Contribute To This Show", contribution_select_path(@show), method: :get %></h2>
     <% else %>
 <div id = "boxes"> 
