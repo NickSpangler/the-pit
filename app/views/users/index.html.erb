@@ -1,1 +1,10 @@
-<h1>All Users</h1>
+<h1 style="text-align: center">Contributors working in The PIT:</h1>
+
+<% @users.each do |user| %>
+    <div style="padding-left: 20px">
+        <h4><%= link_to user.name, user %></h4>
+        <p>Creator of <%= pluralize(user.created_shows.count, 'show') %></p>
+        <p>Contributor to <%= pluralize(user.contributed_shows.uniq.count, 'show') %> with <%= pluralize(user.contributions.count, 'contribution') %></p>
+    </div>
+    <hr>
+<% end %>

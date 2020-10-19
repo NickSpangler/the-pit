@@ -31,9 +31,8 @@
       <a class="active" href="/">The PIT</a>
       <%= link_to "Browse Shows", shows_path %>
       <%= link_to "Browse Contributors", users_path %>
-      <a href="/shows">Browse Contributors</a>
-      <a href="/shows">Sign Up</a>
-      <a href="/shows">Log In</a>
+      <%= link_to "Sign Up", new_user_path %>
+      <%= link_to "Log In", new_session_path %>
     </div>
 
     <% else %>

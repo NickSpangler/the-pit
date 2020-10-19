@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :verified_user, only: [:new, :create]
+    skip_before_action :verified_user, only: [:new, :create, :index, :show]
     
     def new
         @user = User.new
@@ -14,6 +14,10 @@ class UsersController < ApplicationController
 
     def dashboard
         @user = User.find_by(id: session[:user_id])
+    end
+
+    def index
+        @users = User.all
     end
 
     private
