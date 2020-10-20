@@ -32,17 +32,25 @@ class ContributionsController < ApplicationController
     end
 
     def update
-        if @contribution.update(contribution_params)
-            redirect_to show_contribution_path(@contribution.show_id, @contribution)
+        if @contribution.contributor != current_user
+            redirect_to user_dashboard_path(current_user), notice: 'You may only edit your own contributions.'
         else
-            @show = @contribution.show
-            render "edit"
+            if @contribution.update(contribution_params)
+                redirect_to show_contribution_path(@contribution.show_id, @contribution)
+            else
+                @show = @contribution.show
+                render "edit"
+            end
         end
     end
 
     def destroy
-        @contribution.destroy
-        redirect_to user_dashboard_path(current_user)
+        if @contribution.contributor != current_user
+            redirect_to user_dashboard_path(current_user), notice: 'You may only delete your own contributions.'
+        else
+            @contribution.destroy
+            redirect_to user_dashboard_path(current_user)
+        end
     end
 
     private
