@@ -40,9 +40,9 @@
 
     <div class="topnav">
       <a class="active" href='/users/<%= current_user.id %>/dashboard'>My Dashboard</a>
-      <a href="/shows">Browse Shows</a>
+      <%= link_to "Browse Shows", shows_path %>
       <%= link_to "Create A New Show", new_user_show_path(current_user), method: :get %>
-      <%= link_to "Log Out", "/sessions/#{current_user.id}", method: :delete %>
+      <%= link_to "Log Out", session_path(current_user), method: :delete %>
     </div>
 
     <% end %>
