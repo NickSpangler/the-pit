@@ -1,4 +1,5 @@
 class ContributionsController < ApplicationController
+    before_action :set_contribution, only: [:show, :edit, :update, :destroy]
     skip_before_action :verified_user, only: [:show]
 
     def select
@@ -22,12 +23,7 @@ class ContributionsController < ApplicationController
         end
     end
 
-    def show
-        set_contribution
-    end
-
     def edit
-        set_contribution
         if current_user == @contribution.contributor
             @show = @contribution.show
         else
@@ -36,7 +32,6 @@ class ContributionsController < ApplicationController
     end
 
     def update
-        set_contribution
         if @contribution.update(contribution_params)
             redirect_to show_contribution_path(@contribution.show_id, @contribution)
         else
@@ -46,7 +41,6 @@ class ContributionsController < ApplicationController
     end
 
     def destroy
-        set_contribution
         @contribution.destroy
         redirect_to user_dashboard_path(current_user)
     end

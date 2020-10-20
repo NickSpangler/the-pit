@@ -1,4 +1,5 @@
 class ShowsController < ApplicationController
+    before_action :set_show, only: [:show, :edit, :update, :destroy]
     skip_before_action :verified_user, only: [:index, :show, :most_active]
 
     def new
@@ -14,16 +15,11 @@ class ShowsController < ApplicationController
         end
     end
 
-    def show
-        set_show
-    end
-
     def index
         @shows = Show.all
     end
 
     def edit
-        set_show
         if current_user == @show.creator
         else
             redirect_to user_dashboard_path(current_user), notice: 'You may only edit your own shows.'
@@ -31,7 +27,6 @@ class ShowsController < ApplicationController
     end
 
     def update
-        set_show
          if @show.update(show_params)
             redirect_to user_show_path(current_user, @show)
         else
@@ -40,7 +35,6 @@ class ShowsController < ApplicationController
     end
 
     def destroy
-        set_show
         @show.destroy
         redirect_to user_dashboard_path(current_user)
     end
