@@ -4,7 +4,6 @@
     <div style="padding-left: 20px">
         <h4><%= link_to show.title, show %></h4>
         <p>Created by: <%= link_to show.creator.name, show.creator %></p>
-        <p><%= show.synopsis %></p>
         <% if !current_user %>
             <p><%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %> to contribute to this show.</p>
         <% else %>
