@@ -1,0 +1,26 @@
+<h1 style="text-align: center">Update your costume design for <%= @show.title %></h1>
+
+<%= render "error_fields" %>
+
+<div class="form_container" style="padding-left: 20px">
+    <%= form_with model: @contribution, url: show_contribution_path(@show, @contribution), method: :patch, local: :true do |f| %>
+
+    <%= f.label "Title" %><br>
+    <%= f.text_field :title, placeholder: "e.g. Newsboy Costume Design", size: 50 %><br><br>
+
+    <%= f.label :content, "Describe your design" %><br>
+    <div <% if @contribution.errors.keys.include?(:rich_content) %> class="field_with_errors" <% end %>>
+    <%= f.rich_text_area :rich_content, placeholder: "e.g. An ensemble newsboy, ready to sell papers." %><br>
+    </div>
+
+    <%= f.label "Upload an image of your costume design" %>
+    <%= f.file_field :image %>
+
+    <%= f.hidden_field :kind, value: "Costume" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :show_id, value: @show.id %><br>
+
+    <%= f.submit "Update Costume Design" %>
+
+<% end %>
+</div>
