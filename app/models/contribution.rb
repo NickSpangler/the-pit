@@ -4,6 +4,7 @@ class Contribution < ApplicationRecord
     has_rich_text :rich_content
     has_one_attached :image
     has_one_attached :audio_file
+    scope :most_recent, -> { order('created_at desc') }
 
     validates :title, presence: { message: 'Please include a title for your contribution.' }
     validate :scene_content
