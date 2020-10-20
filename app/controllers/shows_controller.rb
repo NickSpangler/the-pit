@@ -20,23 +20,30 @@ class ShowsController < ApplicationController
     end
 
     def edit
-        if current_user == @show.creator
-        else
+        if current_user != @show.creator
             redirect_to user_dashboard_path(current_user), notice: 'You may only edit your own shows.'
         end
     end
 
     def update
-         if @show.update(show_params)
-            redirect_to user_show_path(current_user, @show)
+        if @show.creator != current_user
+            redirect_to user_dashboard_path(current_user), notice: 'You may only edit your own shows.'
         else
-            render :edit
+            if @show.update(show_params)
+                redirect_to user_show_path(current_user, @show)
+            else
+                render :edit
+            end
         end
     end
 
     def destroy
-        @show.destroy
-        redirect_to user_dashboard_path(current_user)
+        if @show.creator != current_user
+            redirect_to user_dashboard_path(current_user), notice: 'You may only delete your own shows.'
+        else
+            @show.destroy
+            redirect_to user_dashboard_path(current_user)
+        end
     end
 
     def most_active
