@@ -9,5 +9,4 @@ class User < ApplicationRecord
     validates :password, presence: { message: 'Please enter a password.' }
     validates :password, confirmation: { message: 'Password must match password confirmation.' }
 
-
 end

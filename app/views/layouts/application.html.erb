@@ -41,6 +41,7 @@
     <div class="topnav">
       <%= link_to "My Dashboard", user_dashboard_path(current_user), class: "active" %>
       <%= link_to "Browse Shows", shows_path %>
+      <%= link_to "Browse Contributors", users_path %>
       <%= link_to "Create A New Show", new_user_show_path(current_user), method: :get %>
       <%= link_to "Log Out", session_path(current_user), method: :delete %>
     </div>
