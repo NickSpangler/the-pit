@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get 'static/welcome'
   get '/shows/most_active', to: 'shows#most_active', as: 'most_active'
 
-  resources :contributions, only: [:index, :show, :destroy, :edit]
-  patch '/shows/:id/contributions', to: 'contributions#update'
+  # resources :contributions, only: [:index, :show, :destroy, :edit]
+  # patch '/shows/:id/contributions', to: 'contributions#update'
 
   resources :shows, only: [:index, :show, :destroy] do
     resources :contributions

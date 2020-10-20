@@ -28,7 +28,7 @@
   </head>
   <% if !current_user %>
     <div class="topnav">
-      <a class="active" href="/">The PIT</a>
+      <%= link_to "The PIT", root_path, class: "active" %>
       <%= link_to "Most Active Show", most_active_path %>
       <%= link_to "Browse Shows", shows_path %>
       <%= link_to "Browse Contributors", users_path %>
@@ -39,7 +39,7 @@
     <% else %>
 
     <div class="topnav">
-      <a class="active" href='/users/<%= current_user.id %>/dashboard'>My Dashboard</a>
+      <%= link_to "My Dashboard", user_dashboard_path(current_user), class: "active" %>
       <%= link_to "Browse Shows", shows_path %>
       <%= link_to "Create A New Show", new_user_show_path(current_user), method: :get %>
       <%= link_to "Log Out", session_path(current_user), method: :delete %>
