@@ -24,6 +24,10 @@ class ShowsController < ApplicationController
 
     def edit
         set_show
+        if current_user == @show.creator
+        else
+            redirect_to user_dashboard_path(current_user), notice: 'You may only edit your own shows.'
+        end
     end
 
     def update
