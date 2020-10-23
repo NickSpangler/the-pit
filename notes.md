@@ -4,3 +4,11 @@
     - Just dump them all on one show page with their current content?
 
 5) Get rid of unused routes - good start here. Just work through them.
+
+Buttons from Welcome
+
+<!-- <div style="text-align: center">
+    <%= button_to "Sign Up", new_user_path, method: :get %>
+    <%= button_to "Log In", new_session_path, method: :get %>
+    <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+</div> -->

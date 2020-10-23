@@ -22,7 +22,7 @@
         <% @user.contributed_shows.uniq.each do |show| %>
         <li><h3><%= link_to show.title, show %></h3></li> <br>
             <% show.contributions.where(contributor: current_user).each do |contribution| %>
-            <p>My Contribution: <%= link_to contribution.title, user_contribution_path(current_user, contribution) %></p>
+            <p>My Contribution: <%= link_to contribution.title, show_contribution_path(show, contribution) %></p>
             <p>
                 <%= link_to '<i class="glyphicon glyphicon-pencil"></i>'.html_safe, edit_show_contribution_path(show, contribution), title: "Edit Contribution" %>
                 <%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, show_contribution_path(show, contribution), method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete Contribution" %>
