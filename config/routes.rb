@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   
   resources :sessions, only: [:new, :create, :destroy]
   
+  get '/auth/facebook', as: 'facebook_login'
   get '/auth/facebook/callback' => 'sessions#create'
 
 end
