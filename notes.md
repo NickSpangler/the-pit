@@ -12,3 +12,7 @@ Buttons from Welcome
     <%= button_to "Log In", new_session_path, method: :get %>
     <%= link_to('Log in with Facebook!', '/auth/facebook') %>
 </div> -->
+
+  <audio id="player" autoplay><source src="/audio/bit_by_bit.wav" type="audio/mp3"></audio>
+
+     <iframe src="/audio/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>

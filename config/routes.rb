@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root to: 'static#welcome'
 
   get '/shows/most_active', to: 'shows#most_active', as: 'most_active'
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   resources :shows, only: [:index, :show] do
     resources :contributions, except: [:index]
   end
+
   resources :users do
     resources :shows, except: [:index]
   end
